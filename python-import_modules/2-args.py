@@ -3,7 +3,6 @@
 if __name__ == "__main__":
 
     from sys import argv
-
     count = len(argv) - 1
 
     if count == 0:
