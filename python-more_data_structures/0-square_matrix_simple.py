@@ -2,6 +2,8 @@
 
 def square_matrix_simple(matrix=[]):
 
+    """function that computes the square value of all integers of a matrix"""
+
     result = []
 
     for row in matrix:
