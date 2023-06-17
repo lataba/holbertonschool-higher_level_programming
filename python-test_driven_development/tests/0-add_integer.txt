@@ -1,5 +1,20 @@
+The ``0-add_integer`` module
+============================
+This module contains only one function: add_integer.
+
+Using ``add_integer``
+---------------------
+
+First import
+============ 
+
+First import ``add_integer`` from the ``0-add_integer`` module 
+    
     >>> add_integer = __import__('0-add_integer').add_integer
     
+Normal use
+==========
+
     >>> add_integer(1, 6)
     7
 
@@ -15,6 +30,11 @@
     >>> add_integer(3)
     101
 
+Exceptions
+==========
+
+If a and b are any type other than int or float, the function will raise a TypeError exception
+    
     >>> add_integer("hello", 5)
     Traceback (most recent call last):
     TypeError: a must be an integer
