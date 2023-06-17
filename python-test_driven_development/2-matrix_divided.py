@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Defines a matrix division function"""
+"""
+Defines a matrix division function
+"""
 
 
 def matrix_divided(matrix, div):
-    """Function that divides all elements of a matrix"""
+    """
+    Function that divides all elements of a matrix
+    """
 
     if (not isinstance(matrix, list) or
             not all(isinstance(row, list) for row in matrix)):
