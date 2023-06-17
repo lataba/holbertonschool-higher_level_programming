@@ -1,13 +1,13 @@
 The ``2-matrix_divided.py`` module
 ==================================
-This module contains the function matrix_divided. Error in project formatting scheme advances file numbering +1 for every task after 0.
+This module contains the function matrix_divided.
 
 Using ``matrix_divided``
 ------------------------
 
 First import
 ============
-First import ``matrix_divided`` from the ``2-matrix_divided`` module. Since the file name contains a numeral, you can't use the simple ``from 2-matrix_divided import matrix_divided``. You can instead use the following syntax:
+First import ``matrix_divided`` from the ``2-matrix_divided`` module.
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
