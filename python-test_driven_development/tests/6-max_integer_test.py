@@ -38,5 +38,11 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([7])
         self.assertEqual(result, 7)
 
+    def test_string(self):
+        """Test a string."""
+        string = "Laura"
+        self.assertEqual(max_integer(string), 'u')
+
+
 if __name__ == '__main__':
     unittest.main()
