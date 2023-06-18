@@ -20,7 +20,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_positive_numbers(self):
         """Test with positive numbers"""
-        result = max_integer([1, 2, 3, 4, 5])
+        result = max_integer([1, 2, 3, 5, 4])
         self.assertEqual(result, 5)
 
     def test_negative_numbers(self):
@@ -57,6 +57,11 @@ class TestMaxInteger(unittest.TestCase):
         """Test a string."""
         result = max_integer("Laura")
         self.assertEqual(result, 'u')
+
+    def test_list_of_strings(self):
+        """Test a list of strings."""
+        result = max_integer(["I", "am", "Laura"])
+        self.assertEqual(result, "am")
 
 
 if __name__ == '__main__':
