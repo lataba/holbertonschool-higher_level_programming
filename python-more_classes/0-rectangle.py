@@ -2,6 +2,6 @@
 """Module that defines a rectangle"""
 
 
-class Square:
+class Rectangle:
     """Class that defines a rectangle"""
     pass
