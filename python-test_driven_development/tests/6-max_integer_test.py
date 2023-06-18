@@ -68,6 +68,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(result, "ccc")
 
     def test_list_of_lists(self):
+        """Test a list of lists."""
         self.assertEqual(max_integer([[5, 8.2], [3.7, -4]]), [5, 8.2])
 
 
