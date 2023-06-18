@@ -53,6 +53,11 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer("Laura")
         self.assertEqual(result, 'u')
 
+    def test_list_of_strings(self):
+        """Test a list of strings."""
+        result = max_integer(["I", "am", "Laura"])
+        self.assertEqual(result, "Laura")
+
 
 if __name__ == '__main__':
     unittest.main()
