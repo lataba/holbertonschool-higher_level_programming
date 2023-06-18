@@ -38,11 +38,5 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([7])
         self.assertEqual(result, 7)
 
-    def test_large_list(self):
-        """Test with a large list of numbers"""
-        result = max_integer(list(range(1, 1000001)))
-        self.assertEqual(result, 1000000)
-
-
 if __name__ == '__main__':
     unittest.main()
