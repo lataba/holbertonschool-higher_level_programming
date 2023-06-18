@@ -13,6 +13,12 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([])
         self.assertIsNone(result, None)
 
+    class TestMaxInteger(unittest.TestCase):
+    def test_empty_list(self):
+        """Test with an empty string"""
+        result = max_integer("")
+        self.assertIsNone(result, None)
+
     def test_positive_numbers(self):
         """Test with positive numbers"""
         result = max_integer([1, 2, 3, 4, 5])
@@ -40,8 +46,8 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_string(self):
         """Test a string."""
-        string = "Laura"
-        self.assertEqual(max_integer(string), 'u')
+        result = max_integer("Laura")
+        self.assertEqual(result, 'u')
 
 
 if __name__ == '__main__':
