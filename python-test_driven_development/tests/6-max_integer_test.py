@@ -60,8 +60,8 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_list_of_strings(self):
         """Test a list of strings."""
-        result = max_integer(["I", "am", "Laura"])
-        self.assertEqual(result, "am")
+        result = max_integer(["a", "b", "c"])
+        self.assertEqual(result, "c")
 
 
 if __name__ == '__main__':
