@@ -12,6 +12,10 @@ class TestMaxInteger(unittest.TestCase):
         """Test with an empty list"""
         result = max_integer([])
         self.assertIsNone(result, None)
+        self.assertIsNone(max_integer([None]), None)
+
+    def test_empty_list(self):
+        self.assertIsNone(max_integer([]))
 
     def test_empty_list(self):
         """Test with an empty string"""
@@ -60,8 +64,11 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_list_of_strings(self):
         """Test a list of strings."""
-        result = max_integer(["a", "b", "c"])
-        self.assertEqual(result, "c")
+        result = max_integer(["aaa", "bbb", "ccc"])
+        self.assertEqual(result, "ccc")
+
+    def test_list_of_lists(self):
+        self.assertEqual(max_integer([[5, 8.2], [3.7, -4]]), [5, 8.2])
 
 
 if __name__ == '__main__':
