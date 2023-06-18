@@ -13,7 +13,6 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([])
         self.assertIsNone(result, None)
 
-    class TestMaxInteger(unittest.TestCase):
     def test_empty_list(self):
         """Test with an empty string"""
         result = max_integer("")
@@ -33,6 +32,11 @@ class TestMaxInteger(unittest.TestCase):
         """Test with mixed positive and negative numbers"""
         result = max_integer([-1, 0, 1, 2, 3])
         self.assertEqual(result, 3)
+
+    def test_ints_and_floats(self):
+        """Test a list of ints and floats."""
+        result = max_integer([1.53, 15.5, -9, 15, 6])
+        self.assertEqual(result, 15.5)
 
     def test_duplicate_numbers(self):
         """Test with duplicate numbers"""
