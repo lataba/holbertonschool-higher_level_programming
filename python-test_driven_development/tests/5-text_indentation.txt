@@ -1,0 +1,61 @@
+The ``5-text_indentation.py`` module
+==================================
+This module contains the function text_indentation.
+
+Using ``text_indentation``
+------------------------
+
+First import
+============
+First import ``text_indentation`` from the ``5-text_indentation`` module.
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Normal use
+==========
+
+Test 1 - Valid text with "."
+    >>> text_indentation("Hello World. I am, a Holberton student.")
+    Hello World.
+    <BLANKLINE>
+    I am, a Holberton student.
+    <BLANKLINE>
+
+Test - Valid text with "." and "?"
+    >>> text_indentation("Hello World. I am? a, Holberton? student.")
+    Hello World.
+    <BLANKLINE>
+    I am?
+    <BLANKLINE>
+    a, Holberton?
+    <BLANKLINE>
+    student.
+    <BLANKLINE>
+
+Test - Valid text with "." and "?" and ":"
+    >>> text_indentation("Hello: World. I am? a, Holberton? student.")
+    Hello:
+    <BLANKLINE>
+    World.
+    <BLANKLINE>
+    I am?
+    <BLANKLINE>
+    a, Holberton?
+    <BLANKLINE>
+    student.
+    <BLANKLINE>
+
+Exceptions
+==========
+
+Test 3 - Text nor a string
+    >>> text_indentation(58348849494.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Test 4 - Empty string
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
