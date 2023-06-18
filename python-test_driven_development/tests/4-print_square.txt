@@ -24,7 +24,6 @@ Test 1 - Valid integer size value
 Test 2 - Zero size value
     >>> print_square(0)
 
-
 Exceptions
 ==========
 
@@ -45,3 +44,15 @@ Test 5 - Float and less than zero size value
     Traceback (most recent call last):
         ...
     TypeError: size must be an integer
+
+Test 6 - Empty size
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+Test 7 - Empty size
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
