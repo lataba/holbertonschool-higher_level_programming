@@ -1,0 +1,5 @@
+# Ignorar documentos que contienen la palabra "main"
+*main*
+
+# Ignorar la carpeta __pycache__
+__pycache__/
