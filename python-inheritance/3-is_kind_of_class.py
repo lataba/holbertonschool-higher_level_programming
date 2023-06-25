@@ -4,7 +4,7 @@ Defines a function that indicates if an object is an instance
 """
 
 
-def is_same_class(obj, a_class):
+def is_kind_of_class(obj, a_class):
     """
     function that returns True if the object is an instance of a class
     """
