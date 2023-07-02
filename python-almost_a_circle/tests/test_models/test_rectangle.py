@@ -16,6 +16,22 @@ class TestRectangle(unittest.TestCase):
         unittest: The unittest module for creating test cases.
     """
 
+    def test_rectangle_is_base(self):
+        self.assertIsInstance(Rectangle(10, 2), Base)
+
+    def test_no_arguments(self):
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+    def test_one_argument(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1)
+
+    def test_two_arguments(self):
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r1.id, r2.id - 1)
+
     def test_constructor_with_valid_arguments(self):
         """Test that the constructor sets the attributes correctly with valid arguments"""
         r = Rectangle(10, 20, 2, 3, 1)
@@ -32,10 +48,31 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 20, 2, 3, 1)
 
+    def test_None_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(None, 2)
+
+    def test_None_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, None)
+
+    def test_None_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, None)
+
+    def test_None_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, None)
+
     def test_area(self):
         """Test that the area method returns the correct area of the rectangle"""
         r = Rectangle(5, 10)
         self.assertEqual(r.area(), 50)
+
+    def test_area_one_arg(self):
+        r = Rectangle(2, 10, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            r.area(1)
 
     def test_str(self):
         """Test that the str method returns the correct string representation of the rectangle"""
