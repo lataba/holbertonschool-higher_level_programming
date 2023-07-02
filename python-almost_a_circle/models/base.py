@@ -20,7 +20,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of list_dictionaries"""
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -32,5 +32,12 @@ class Base:
             if list_objs is None:
                 jsonfile.write("[]")
             else:
-                list_dicts = [o.to_dictionary() for o in list_objs]
+                list_dicts = [obj.to_dictionary() for obj in list_objs]
                 jsonfile.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation"""
+        if json_string is None or json_string == []:
+            return []
+        return json.loads(json_string)
