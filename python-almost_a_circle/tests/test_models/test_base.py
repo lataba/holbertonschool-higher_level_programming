@@ -63,8 +63,37 @@ class TestBase_to_json_string(unittest.TestCase):
         expected_json = '[{"id": 1, "name": "John"}, {"id": 2, "name": "Jane"}]'
         self.assertEqual(json_string, expected_json)
 
+    def test_to_json_string_rectangle_type(self):
+        """Test to json string rectangle type"""
+        r = Rectangle(10, 7, 2, 8, 6)
+        self.assertEqual(str, type(Base.to_json_string([r.to_dictionary()])))
 
-class TestBase_from_json_string(unittest.TestCase):
+    def test_to_json_string_rectangle_one_dict(self):
+        r = Rectangle(10, 7, 2, 8, 6)
+        self.assertTrue(len(Base.to_json_string([r.to_dictionary()])) == 53)
+
+    def test_to_json_string_rectangle_two_dicts(self):
+        r1 = Rectangle(2, 3, 5, 19, 2)
+        r2 = Rectangle(4, 2, 4, 1, 12)
+        list_dicts = [r1.to_dictionary(), r2.to_dictionary()]
+        self.assertTrue(len(Base.to_json_string(list_dicts)) == 106)
+
+    def test_to_json_string_square_type(self):
+        s = Square(10, 2, 3, 4)
+        self.assertEqual(str, type(Base.to_json_string([s.to_dictionary()])))
+
+    def test_to_json_string_square_one_dict(self):
+        s = Square(10, 2, 3, 4)
+        self.assertTrue(len(Base.to_json_string([s.to_dictionary()])) == 39)
+
+    def test_to_json_string_square_two_dicts(self):
+        s1 = Square(10, 2, 3, 4)
+        s2 = Square(4, 5, 21, 2)
+        list_dicts = [s1.to_dictionary(), s2.to_dictionary()]
+        self.assertTrue(len(Base.to_json_string(list_dicts)) == 78)
+
+
+class TestBaseFromJsonString(unittest.TestCase):
     """Unittests for..."""
 
     def test_from_json_string_empty(self):
@@ -72,9 +101,44 @@ class TestBase_from_json_string(unittest.TestCase):
         list_objs = Base.from_json_string("[]")
         self.assertEqual(list_objs, [])
 
+    def test_from_json_string_None(self):
+        self.assertEqual([], Base.from_json_string(None))
+
+    def test_from_json_string_no_args(self):
+        with self.assertRaises(TypeError):
+            Base.from_json_string()
+
+    def test_from_json_string_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.from_json_string([], 1)
+
+    def test_from_json_string_one_rectangle(self):
+        """Test from json string one rectangle"""
+        list_input = [{"id": 89, "width": 10, "height": 4, "x": 7}]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(list_input, list_output)
+
+    def test_from_json_string_two_rectangles(self):
+        list_input = [
+            {"id": 89, "width": 10, "height": 4, "x": 7, "y": 8},
+            {"id": 98, "width": 5, "height": 2, "x": 1, "y": 3},
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(list_input, list_output)
+
 
 class TestBase_load_from_file(unittest.TestCase):
     """Unittests for..."""
+
+    def test_load_from_file_no_file(self):
+        output = Square.load_from_file()
+        self.assertEqual([], output)
+
+    def test_load_from_file_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.load_from_file([], 1)
 
     def test_load_from_file_first_rectangle(self):
         """Teste load from file rectangle"""
