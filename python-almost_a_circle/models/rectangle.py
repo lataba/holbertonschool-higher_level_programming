@@ -73,12 +73,15 @@ class Rectangle(Base):
 
     def display(self):
         """prints in stdout the Rectangle instance"""
-        for i in range(self.__height):
-            if self.__height == 0 or self.__width == 0:
-                print("")
-                return
+        if self.__height == 0 or self.__width == 0:
+            print("")
+            return
 
-            print("#" * self.__width)
+        if self.__y > 0:
+            print("\n" * (self.__y - 1))
+
+        for i in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """overriding the __str__ method"""
