@@ -26,6 +26,36 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.y, 3)
         self.assertEqual(s.id, 1)
 
+    def test_is_base(self):
+        self.assertIsInstance(Square(10), Base)
+
+    def test_is_rectangle(self):
+        self.assertIsInstance(Square(10), Square)
+
+    def test_no_args(self):
+        with self.assertRaises(TypeError):
+            Square()
+
+    def test_more_than_four_args(self):
+        with self.assertRaises(TypeError):
+            Square(1, 2, 3, 4, 5)
+
+    def test_width_getter(self):
+        s = Square(4, 1, 9, 2)
+        s.size = 8
+        self.assertEqual(8, s.width)
+
+    def test_height_getter(self):
+        s = Square(4, 1, 9, 2)
+        s.size = 8
+        self.assertEqual(8, s.height)
+
+    def test_x_getter(self):
+        self.assertEqual(0, Square(10).x)
+
+    def test_y_getter(self):
+        self.assertEqual(0, Square(10).y)
+
     def test_constructor_with_invalid_arguments(self):
         """Test that the constructor raises the expected exceptions with invalid arguments"""
         with self.assertRaises(TypeError):
@@ -33,10 +63,27 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             Square(0, 2, 3, 1)
 
+    def test_None_size(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(None)
+
+    def test_None_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, None)
+
+    def test_None_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, None)
+
     def test_area(self):
         """Test that the area method returns the correct area of the square"""
         s = Square(5)
         self.assertEqual(s.area(), 25)
+
+    def test_area_one_arg(self):
+        s = Square(2, 10, 1, 1)
+        with self.assertRaises(TypeError):
+            s.area(1)
 
     def test_str(self):
         """Test that the str method returns the correct string representation of the square"""
