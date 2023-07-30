@@ -8,10 +8,16 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    user_arg, password_arg, db_name_arg = sys.argv[1:4]
+
     connection = MySQLdb.connect(
-                user=user_arg, wd=password_arg, db=db_name_arg)
+                    user=sys.argv[1],
+                    password=sys.argv[2],
+                    db=sys.argv[3])
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states")
+
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC;")
     states_data = cursor.fetchall()
     [print(state) for state in states_data]
+
+    cursor.close()
+    connection.close()
