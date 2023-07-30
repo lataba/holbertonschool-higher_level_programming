@@ -17,8 +17,7 @@ if __name__ == "__main__":
     cursor = connection.cursor()
 
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE '{}' ORDER BY states.id ASC;".
-        format(sys.argv[4]))
+        "SELECT * FROM states WHERE BINARY name = '{}';".format(sys.argv[4]))
 
     states_data = cursor.fetchall()
     [print(state) for state in states_data]
